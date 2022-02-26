@@ -1,38 +1,48 @@
+import java.util.*;
 abstract class shape
 {
-abstract void numberside();
+ abstract void numberOfSides();
 }
-class rect extends shape
-{   
-void  numberside()
+class rectangle extends shape
 {
-   System.out.println("number of sides of Rectangle:4");
+ void numberOfSides()
+ {
+  System.out.println("Rectangle:\nNo.of sides: 4");
+ }
 }
-}
-class tria extends shape
+class triangle extends shape
 {
-void  numberside()
+ void numberOfSides()
+ {
+  System.out.println("Triangle:\nNo.of sides: 3");
+ }
+}
+class hexagon extends shape
 {
-   System.out.println("number of sides of Triangle:3");
+ void numberOfSides()
+ {
+  System.out.println("Hexagon:\nNo.of sides: 6");
+ }
 }
-}
-class hexa extends shape
+class shapes
 {
-   void  numberside()
-{
-   System.out.println("number of sides of Hexagon:6");
+ public static void main(String args[])
+ {
+  rectangle r = new rectangle();
+  triangle t = new triangle();
+  hexagon h = new hexagon();
+  r.numberOfSides();
+  t.numberOfSides();
+  h.numberOfSides();
+ }
 }
-}
-  class aabstract
-  { 
-    public static void main (String s[])
-    {
-      rect obj1=new rect();
-      tria obj2=new tria();
-      hexa obj3=new hexa();
-      obj1.numberside();
-      obj2.numberside();
-      obj3.numberside();            
-    }
-   }
-
+/*
+ Output:
+ 
+Rectangle:
+No.of sides: 4
+Triangle:
+No.of sides: 3
+Hexagon:
+No.of sides: 6
+ */
