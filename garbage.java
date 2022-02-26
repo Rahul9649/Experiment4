@@ -1,44 +1,27 @@
-import java.util.Scanner;
-public class garbage{
-    
+import java.util.*;
+import java.lang.*;
+public class garbage
+{
  
-    
-    public static void main(String args[]){  
-     Student obj=new Student();  
-     obj.getDetails();
-     obj.showDetails();
-     obj=null;  
-     System.gc();  
-    
-    }  
-   }  
+ public static void main(String args[])
+ {
+  garbage ob1 = new garbage();
+  garbage ob2 = new garbage();
+  garbage ob3 = new garbage();
+  ob1=ob2;
+  ob3=null;
+  System.gc();
+ }
 
-   class Student
-   {
-       Scanner sc = new Scanner(System.in);
-       String name,number;
-       int rollno;
-       
-       void getDetails()
-       {
-           System.out.printf("Enter the Name of Student : ");
-           name = sc.next();
-           System.out.printf("Enter the Roll No : ");
-           rollno = sc.nextInt();
-           System.out.printf("Enter Phone Number : ");
-           number = sc.next();
+ public void finalize()
+ {
+  System.out.println("Garbage collected....");
+ }
+}
 
-       }
 
-       void showDetails()
-       {
-        System.out.printf("\nThe Name of Student is %s \n",name);
-        System.out.printf("Enter the Roll No : %d \n",rollno);
-        System.out.printf("Enter Phone Number : %s \n",number);
-       }
-
-       protected void finalize()
-       {
-           System.out.println("\nGarbage of Object Collected");
-       }
-   }
+/*
+Output:
+Garbage collected....
+Garbage collected....
+*/
